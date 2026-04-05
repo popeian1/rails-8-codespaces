@@ -43,6 +43,8 @@ class ProductsController < ApplicationController
     end
 
     def product_params
-      params.expect(product: [ :name ])
+      params.expect(product: [ :name, :description ])
     end
+
+    allow_unauthenticated_access only: %i[ index show ]
 end
